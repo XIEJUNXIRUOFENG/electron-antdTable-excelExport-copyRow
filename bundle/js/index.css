@@ -1,0 +1,134 @@
+#main-container {
+  font-family: "Microsoft Yahei", MicrosoftYaHei, "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffebc8;
+  background-color: #0a0f0e;
+  height: 100%;
+  width: 100%;
+}
+.best-bid {
+  padding: 0 16px 16px;
+  width: 60%;
+}
+.best-bid h4 {
+  display: inline-block;
+}
+.best-bid .export-button {
+  display: inline-block;
+  margin-left: 10px;
+}
+.best-bid .ant-table-wrapper {
+  margin-top: 10px;
+}
+.best-bid .marked {
+  text-align: center;
+  cursor: pointer;
+}
+.best-bid .bond {
+  color: #f9c152;
+}
+.best-bid .bid {
+  color: #f29527;
+}
+.best-bid .vbid {
+  color: #ffebc8;
+}
+.best-bid .ofr {
+  color: #52afe4;
+}
+.best-bid .vofr {
+  color: #ffebc8;
+}
+.bid-title {
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  color: #ffebc8;
+  font-weight: 400;
+}
+.bid-tab {
+  margin-top: 15px;
+  background: #1e2726;
+  border-radius: 2px;
+  font-size: 0;
+}
+.bid-tab .bid-tab-item {
+  display: inline-block;
+  min-width: 76px;
+  padding: 0 2px;
+  color: #9ba1a4;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+.bid-tab .bid-tab-item.active {
+  border-radius: 2px;
+  color: #ffebc8;
+}
+.bid-tab .bid-tab-item.active.ALL {
+  background: #0d7b7b;
+}
+.bid-tab .bid-tab-item.active.TP {
+  background: #326dc2;
+}
+.bid-tab .bid-tab-item.active.ICAP {
+  background: #d73247;
+}
+.bid-tab .bid-tab-item.active.PATR {
+  background: #d77916;
+}
+.bid-tab .bid-tab-item.active.BGC {
+  background: #29a25d;
+}
+.bid-tab .bid-tab-item.active.TJXT {
+  background: #8035b1;
+}
+.copy-border .copy-button {
+  display: none;
+}
+.copy-border:hover {
+  cursor: pointer;
+}
+.copy-border:hover .copy-button {
+  display: inline-block;
+}
+.ant-table-content .ant-table-thead tr th {
+  background: #000000;
+  color: #7b8082;
+  padding: 10px 5px;
+}
+.ant-table-content .ant-table-tbody tr:nth-child(2n+1) {
+  background: #151818;
+}
+.ant-table-content .ant-table-tbody tr:nth-child(2n) {
+  background: #1a201f;
+}
+.ant-table-content .ant-table-tbody tr td {
+  border-bottom: none;
+  padding: 10px 5px;
+}
+.ant-table-scroll .ant-table-header {
+  background: #000000;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #0a0f0e;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border: 1px solid transparent;
+  background-color: #424244;
+  border-radius: 51px;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: #179595;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
