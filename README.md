@@ -17,7 +17,9 @@ cd electron-antdTable-excelExport-copyRow
 # Install dependencies
 npm install
 # Run the app
-npm run start && npm run dev
+npm run start 
+# Run new gitbash
+npm run dev
 # View console
 Ctrl+Shift+i
 
