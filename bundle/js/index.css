@@ -86,11 +86,11 @@
 .bid-tab .bid-tab-item.active.TJXT {
   background: #8035b1;
 }
-.copy-border .copy-button {
+.copy-border .copy-button-show {
   display: none;
 }
-.copy-border .copy-button-show {
-  display: inline-block;
+.copy-border .copy-button {
+  display: none;
 }
 .copy-border .copy-data-button {
   display: none;
@@ -102,6 +102,9 @@
   cursor: pointer;
 }
 .copy-border:hover .copy-data-button {
+  display: inline-block;
+}
+.copy-border:hover .copy-button-show {
   display: inline-block;
 }
 .ant-table-content .ant-table-thead tr th {

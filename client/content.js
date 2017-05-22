@@ -127,6 +127,7 @@ class BestBid extends Component {
     <Button type="primary" className={this.state.style}>复制所获取数据行内容</Button></CopyToClipboard></div>;
   }
 
+  //通过这个点击事件先触发单元格事件调用ToCopy()
   getData = () => {
     this.setState({getstyle: 'copy-data-button-none', style: 'copy-button-show'});
   }
