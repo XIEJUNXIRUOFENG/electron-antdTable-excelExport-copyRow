@@ -18,8 +18,23 @@ const BROKER_TYPES = {
 };
 const {Component, PropTypes} = React;
 class BestBid extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: props.data,
+      activeBroker: 'ALL',
+      copy: '',
+      style: 'copy-button',
+      getstyle: 'copy-data-button'
+    }
+  }
+
   static propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    activeBroker: PropTypes.string,
+    copy: PropTypes.string,
+    style: PropTypes.string,
+    getstyle: PropTypes.string
   };
 
   static defaultProps = {
@@ -67,15 +82,6 @@ class BestBid extends Component {
     ]
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: props.data,
-      activeBroker: 'ALL',
-      copy: ''
-    }
-  }
-
   changeTab(activeBroker) {
     this.setState({activeBroker});
   }
@@ -117,8 +123,12 @@ class BestBid extends Component {
 
   //将复制功能绑定在债券这一项上
   renderCopy = (text) => {
-    return <div className='copy-border'>{text}<CopyToClipboard text={this.state.copy} onCopy={this.handleClick}>
-    <Button type="primary" className='copy-button'>复制该列内容</Button></CopyToClipboard></div>;
+    return <div className='copy-border'>{text}<Button type="primary" className={this.state.getstyle} onClick={this.getData}>获取该行数据</Button><CopyToClipboard text={this.state.copy} onCopy={this.handleClick}>
+    <Button type="primary" className={this.state.style}>复制所获取数据行内容</Button></CopyToClipboard></div>;
+  }
+
+  getData = () => {
+    this.setState({getstyle: 'copy-data-button-none', style: 'copy-button-show'});
   }
 
   ToCopy = (record) => {
@@ -129,17 +139,16 @@ class BestBid extends Component {
     clipboardString = clipboardString + ' Ofr:' + (record.ofr || '--');
     clipboardString = clipboardString + ' Vol.Ofr:' + (record.ofrVol || '--');
     this.setState({copy: clipboardString})
-    console.warn(this.state.copy);
   }
 
   //复制成功与否提示
   handleClick = () => {
-    console.warn('解骏'+ this.state.copy);
     if (this.state.copy) {
-      message.success('发行结果已经成功复制到剪贴板！');
+      message.success('改行内容已经成功复制到剪贴板！');
     } else {
       message.info('没有可复制的发行结果！');
     }
+    this.setState({getstyle: 'copy-data-button', style: 'copy-button'});
   };
 
   //将星星图标渲染上去
@@ -183,7 +192,6 @@ class BestBid extends Component {
 
   //excel表格导出
   exportClick() {
-    console.log(this.state.data);
     let excelResult = this.state.data;
     let excelData = [];
     excelResult.map(function(e, i) {

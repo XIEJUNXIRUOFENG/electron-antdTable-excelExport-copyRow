@@ -10,6 +10,7 @@
 .best-bid {
   padding: 0 16px 16px;
   width: 60%;
+  min-width: 500px;
 }
 .best-bid h4 {
   display: inline-block;
@@ -88,10 +89,19 @@
 .copy-border .copy-button {
   display: none;
 }
+.copy-border .copy-button-show {
+  display: inline-block;
+}
+.copy-border .copy-data-button {
+  display: none;
+}
+.copy-border .copy-data-button-none {
+  display: none;
+}
 .copy-border:hover {
   cursor: pointer;
 }
-.copy-border:hover .copy-button {
+.copy-border:hover .copy-data-button {
   display: inline-block;
 }
 .ant-table-content .ant-table-thead tr th {

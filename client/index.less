@@ -10,6 +10,9 @@
     width: 100%;
 }
 .best-bid {
+  padding: 0 16px 16px;
+  width: 60%;
+  min-width: 500px;
   h4 {
     display: inline-block;
   }
@@ -17,8 +20,6 @@
     display: inline-block;
     margin-left: 10px;
   }
-  padding: 0 16px 16px;
-  width: 60%;
   .ant-table-wrapper {
     margin-top: 10px;
   }
@@ -94,9 +95,18 @@
   .copy-button {
     display: none;
   }
+  .copy-button-show {
+    display: inline-block;
+  }
+  .copy-data-button {
+    display: none;
+  }
+  .copy-data-button-none {
+    display: none;
+  }
   &:hover {
     cursor: pointer;
-    .copy-button {
+    .copy-data-button {
       display: inline-block;
     }
   }
