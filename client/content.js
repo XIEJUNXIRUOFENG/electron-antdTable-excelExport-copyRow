@@ -5,7 +5,8 @@ import Table from 'antd/lib/table';
 import Icon from 'antd/lib/icon';
 import Button from 'antd/lib/button';
 import message from 'antd/lib/message';
-import {easyExportXLSX} from './xlsxUtil';
+// import {easyExportXLSX} from './xlsxUtil';
+import {exportExcel} from './simpleXlsx';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 const BROKER_TYPES = {
@@ -191,22 +192,40 @@ class BestBid extends Component {
     );
   }
 
-  //excel表格导出
+  // //excel表格导出-xlsxUtil.js
+  // exportClick() {
+  //   let excelResult = this.state.data;
+  //   let excelData = [];
+  //   excelResult.map(function(e, i) {
+  //     excelData[i] = {};
+  //     excelData[i]['债券'] = e.shortName || '--';
+  //     excelData[i]['Vol.Bid'] = e.bidVol || '--';
+  //     excelData[i]['Bid'] = e.bid || '--';
+  //     excelData[i]['Ofr'] = e.ofr || '--';
+  //     excelData[i]['Vol.Ofr'] = e.ofrVol || '--';
+  //   })
+  //   let xlsxExportOption = {
+  //     fileName: '金融数据 - 列表'
+  //   };
+  //   easyExportXLSX(excelData, xlsxExportOption);
+  // }
+
+  //excel表格导出-simpleXlsx.js
   exportClick() {
     let excelResult = this.state.data;
     let excelData = [];
-    excelResult.map(function(e, i) {
-      excelData[i] = {};
-      excelData[i]['债券'] = e.shortName || '--';
-      excelData[i]['Vol.Bid'] = e.bidVol || '--';
-      excelData[i]['Bid'] = e.bid || '--';
-      excelData[i]['Ofr'] = e.ofr || '--';
-      excelData[i]['Vol.Ofr'] = e.ofrVol || '--';
-    })
-    let xlsxExportOption = {
-      fileName: '金融数据 - 列表'
-    };
-    easyExportXLSX(excelData, xlsxExportOption);
+    excelData[0] = ['债券','Vol.Bid','Bid','Ofr','Vol.Ofr'];
+    excelResult.forEach(function(e, i) {
+      let n =i+1;
+      excelData[n] = [];
+      excelData[n][0] = e.shortName || '--';
+      excelData[n][1] = e.bidVol || '--';
+      excelData[n][2] = e.bid || '--';
+      excelData[n][3] = e.ofr || '--';
+      excelData[n][4] = e.ofrVol || '--';
+    });
+    let fileName =  '金融数据-列表';
+    exportExcel(excelData, fileName);
   }
 
   render() {
